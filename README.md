@@ -1,41 +1,44 @@
-package com.example.listaelementow;
-
-import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ListView;
-import java.util.ArrayList;
-import java.util.Arrays;
-
-public class MainActivity extends AppCompatActivity {
-
-    ListView listView;
-    Button btnDodaj;
-    ArrayList<String> listaElementow;
-    ArrayAdapter<String> adapter;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        listView = findViewById(R.id.listView);
-        btnDodaj = findViewById(R.id.btnDodaj);
-
-        String[] elementy = {"Element1", "Element2", "Element3"};
-        listaElementow = new ArrayList<>(Arrays.asList(elementy));
-
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listaElementow);
-        listView.setAdapter(adapter);
-
-        btnDodaj.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                listaElementow.add("nowy");
-                adapter.notifyDataSetChanged();
-            }
-        });
-    }
-}
+‒ Napis (etykieta) o treści: „Urządzenia Domowe”
+‒ Napis o treści: „Autor: ”, dalej wstawiony numer zdającego
+‒ Rozkład dotyczący pralki:
+− Obraz pralka.jpg
+− Napis o treści: „Pralka”
+− Pole edycyjne z podpowiedzią o treści: „Podaj nr prania 1..12” umożliwiające wpisywanie jedynie
+liczb
+Arkusz pobrano z www.praktycznyegzamin.pl Arkusz pobrano z www.praktycznyegzamin.pl
+Strona 5 z 7
+− Przycisk o treści: „Zatwierdź”
+− Napis o treści: „Numer prania: nie podano”
+‒ Rozkład dotyczący odkurzacza:
+‒ Obraz odkurzacz.jpg
+‒ Napis o treści: „Odkurzacz”
+‒ Przycisk o treści: „Włącz”
+‒ Napis o treści: „Odkurzacz wyłączony”
+‒ Napis o treści: „Status: naładowany”
+‒ Rozmieszczenie elementów zgodne z obrazami 3 i 4
+Działanie aplikacji:
+‒ Po wciśnięciu przycisku „Zatwierdź” pobierana jest liczba z pola edycyjnego, jeśli jest ona z przedziału
+od 1 do 12 to zmieniany jest napis poniżej na: „Numer prania: <numer>”, gdzie <numer> oznacza
+wartość podaną w polu edycyjnym (obraz 5)
+‒ Po wciśnięciu przycisku „Włącz”, zmienia się podpis przycisku na „Wyłącz” oraz treść napisu poniżej
+na: „Odkurzacz włączony”. Jeżeli kolejny raz zostanie wciśnięty przycisk, napisy wracają do stanu
+początkowego („Włącz” oraz „Odkurzacz wyłączony”) (obraz 6)
+Założenia aplikacji:
+‒ Interfejs użytkownika zapisany za pomocą języka znaczników wspieranego w danym środowisku (np.
+XAML, XML)
+‒ Zastosowane rozkłady liniowe (Linear / Stack lub inny o tej idei), aby można było uzyskać widok taki
+jak na obrazach 3 i 4.
+‒ Kolory tła:
+‒ Dla głównego rozkładu lub strony: LightBlue (#ADD8E6)
+‒ Dla pola edycyjnego: SkyBlue (#87CEEB)
+‒ Dla przycisków: RoyalBlue (#4169E1)
+‒ Kolor czcionki wpisanego tekstu oraz czcionki podpowiedzi dla pola edycyjnego: Navy (#000080)
+‒ Marginesy zewnętrzne:
+‒ Dla pierwszych dwóch napisów 5
+‒ Dla przycisków 10
+‒ Dla obrazów marginesy lewy, prawy i dolny 20, górny 0
+‒ Tekst zapisany powiększoną czcionką dla napisów „Urządzenia Domowe”, „Pralka”, „Odkurzacz”
+‒ Pierwsze dwa napisy na stronie są wyśrodkowane
+‒ Obrazy mają wysokość 150
+‒ Aplikacja powinna być zapisana czytelnie, z zachowaniem zasad czystego formatowania kodu, należy
+stosować znaczące nazwy zmiennych i funkcji.
